@@ -1,0 +1,36 @@
+meta:
+  name: "rotate-pdf-addon"
+  version: "0.1.0"
+  description: |
+    Allows to rotate pdfs.
+
+    Please specify the angle for rotation via a json document.
+    Example:
+
+    ```
+    { "degree": "90" }
+    ```
+
+    *Note that this is applied to ALL attachments!*
+
+    This is rotating "right". The possible values for `degree` can be
+    looked up in the [qpdf
+    manual](https://qpdf.readthedocs.io/en/stable/cli.html#option-rotate).
+
+triggers:
+  - existing-item
+
+runner:
+  nix:
+    enable: true
+
+  docker:
+    enable: true
+
+  trivial:
+    enable: true
+    exec: src/addon.scm
+
+options:
+  networking: false
+  collectOutput: true
