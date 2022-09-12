@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 
 RUN apt-get -y update && \
     apt-get -y upgrade && \
-    apt-get install -y guile-2.2 guile-json qpdf poppler-utils
+    apt-get install -y guile-json qpdf poppler-utils
 
 RUN mkdir -p /opt/addon
 COPY src/addon.scm /opt/addon/
